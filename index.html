@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>claudeflare.in</title>
+  <meta name="description" content="The accidental intersection of Cloudflare and Claude. Built by an IAM intern." />
+  <!-- Favicon — inline data URI works in all browsers including mobile Safari -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Cpath d='M24 21H8C6.1 21 4.5 19.4 4.5 17.5C4.5 15.6 6.1 14 8 14H8.4C9.2 11.8 11.3 10.2 13.8 10.2C15.8 10.2 17.6 11.2 18.7 12.8C19.2 12.6 19.8 12.5 20.4 12.5C23 12.5 25 14.5 25 17.1C25 17.3 25 17.4 24.9 17.6C24.4 19.6 22.6 21 24 21Z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23111111'/%3E%3Cpath d='M24 21H8C6.1 21 4.5 19.4 4.5 17.5C4.5 15.6 6.1 14 8 14H8.4C9.2 11.8 11.3 10.2 13.8 10.2C15.8 10.2 17.6 11.2 18.7 12.8C19.2 12.6 19.8 12.5 20.4 12.5C23 12.5 25 14.5 25 17.1C25 17.3 25 17.4 24.9 17.6C24.4 19.6 22.6 21 24 21Z' fill='white'/%3E%3C/svg%3E" />
+  <!-- Poppins for body/descriptions -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- DevTools warning overlay -->
+  <div id="devtools-warn" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(17,17,17,0.97);align-items:center;justify-content:center;flex-direction:column;gap:1rem;font-family:'Courier New',monospace;color:#fff;text-align:center;padding:2rem;">
+    <svg width="40" height="28" viewBox="0 0 34 22" fill="none"><path d="M26 16H8C5.8 16 4 14.2 4 12C4 9.8 5.8 8 8 8H8.5C9.4 5.4 11.8 3.5 14.6 3.5C16.9 3.5 18.9 4.7 20.1 6.5C20.7 6.3 21.3 6.2 22 6.2C25.1 6.2 27.6 8.7 27.6 11.8C27.6 12 27.5 12.2 27.5 12.4C27 14.5 25 16 26 16Z" stroke="#fff" stroke-width="1.4" fill="none"/></svg>
+    <div style="font-size:1.1rem;font-weight:700;letter-spacing:-0.02em;">Nice try.</div>
+    <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);max-width:320px;line-height:1.7;">Static site. No secrets. No tokens. Close DevTools and enjoy the site.</div>
+    <button onclick="document.getElementById('devtools-warn').style.display='none'" style="margin-top:0.5rem;padding:8px 22px;border-radius:100px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:#fff;font-family:'Courier New',monospace;font-size:0.78rem;cursor:pointer;">close</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#hero" class="nav-logo">
+      <svg width="30" height="19" viewBox="0 0 32 20" fill="none">
+        <path d="M24.5 14.5H7.5C5.6 14.5 4 12.9 4 11C4 9.1 5.6 7.5 7.5 7.5H7.9C8.7 5.2 10.9 3.5 13.5 3.5C15.6 3.5 17.4 4.6 18.5 6.2C19 6 19.6 5.9 20.2 5.9C22.9 5.9 25.1 8.1 25.1 10.8C25.1 11 25 11.2 25 11.4C24.5 13.2 22.8 14.5 24.5 14.5Z" stroke="#111" stroke-width="1.4" fill="none"/>
+      </svg>
+      <span class="nav-brand">claudeflare<span class="nav-dot">.in</span></span>
+    </a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="#love">CF + Claude</a>
+      <a href="#intern">Intern Life</a>
+      <a href="#portfolio">Portfolio</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="pill">claudeflare.in</span>
+        <span class="pill pill-outline">IAM Intern @ Cloudflare</span>
+      </div>
+      <h1 class="hero-title">
+        Securing the Internet.<br/>
+        <em>Breaking it with AI.</em>
+      </h1>
+      <p class="hero-sub">
+        You meant Cloudflare. Or Claude. Either way you found the one person
+        who works at one and builds with the other.
+      </p>
+      <div class="hero-actions">
+        <a href="#love" class="btn btn-primary">How it started</a>
+        <a href="#intern" class="btn btn-ghost">Intern life</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO BAND -->
+  <section class="band" id="intro">
+    <div class="band-inner">
+      <p class="band-text">
+        Hi. I'm an IAM intern at Cloudflare. I secure the internet by day and ship things with Claude by night.
+        This domain is a typo that became a personality.
+      </p>
+    </div>
+  </section>
+
+  <!-- CF + CLAUDE -->
+  <section class="section love-section" id="love">
+    <div class="section-inner">
+      <div class="section-tag">01 / cloudflare + claude</div>
+      <h2 class="section-title">Two companies.<br/><em>One intern.</em></h2>
+      <p class="section-sub">One secures the internet. One makes it intelligent. I work at one and can't stop using the other.</p>
+
+      <div class="slider-wrap">
+
+        <!-- Cloudflare panel -->
+        <div class="slider-panel active" id="panel-cf" tabindex="0" role="button" aria-expanded="true">
+          <div class="slider-collapsed">
+            <img src="assets/cloudflare.png" width="22" height="16" alt="Cloudflare"/>
+            <span class="slider-label">Cloudflare</span>
+          </div>
+          <div class="slider-content">
+            <div class="slider-corner"></div>
+            <div class="slider-head">
+              <div class="slider-logo">
+                <img src="assets/cloudflare.png" width="24" height="18" alt="Cloudflare"/>
+              </div>
+              <div>
+                <h3>Cloudflare</h3>
+              </div>
+            </div>
+            <p class="slider-desc">
+              The thing that sits between the internet and everything else.
+              My day job is making sure the right people get through the door
+              and the wrong ones don't. Basically bouncer work but with more YAML.
+            </p>
+            <a href="https://cloudflare.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Visit Cloudflare</a>
+          </div>
+        </div>
+
+        <!-- Claude panel -->
+        <div class="slider-panel" id="panel-claude" tabindex="0" role="button" aria-expanded="false">
+          <div class="slider-collapsed">
+            <img src="assets/anthropic.png" width="16" height="18" alt="Anthropic"/>
+            <span class="slider-label">Claude</span>
+          </div>
+          <div class="slider-content">
+            <div class="slider-corner"></div>
+            <div class="slider-head">
+              <div class="slider-logo">
+                <img src="assets/anthropic.png" width="20" height="20" alt="Anthropic"/>
+              </div>
+              <div>
+                <h3>Claude by Anthropic</h3>
+              </div>
+            </div>
+            <p class="slider-desc">
+              The AI I actually use to get things done. When access tickets take 3 weeks,
+              Claude writes the feature in 20 minutes. Understands context, doesn't
+              hallucinate your schema, never asks you to clarify what you meant.
+            </p>
+            <a href="https://anthropic.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Visit Anthropic</a>
+          </div>
+        </div>
+
+        <!-- Together panel -->
+        <div class="slider-panel" id="panel-together" tabindex="0" role="button" aria-expanded="false">
+          <div class="slider-collapsed">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L12.9 7.6L19 8.5L14.5 12.9L15.6 19L10 16L4.4 19L5.5 12.9L1 8.5L7.1 7.6L10 2Z" stroke="#AAA" stroke-width="1.4" stroke-linejoin="round"/>
+            </svg>
+            <span class="slider-label">Together</span>
+          </div>
+          <div class="slider-content">
+            <div class="slider-corner"></div>
+            <div class="slider-head">
+              <div class="slider-logo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L14.9 7.6L21 8.5L16.5 12.9L17.6 19L12 16L6.4 19L7.5 12.9L3 8.5L9.1 7.6L12 2Z" stroke="#111" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Cloudflare + Claude</h3>
+              </div>
+            </div>
+            <p class="slider-desc">
+              Cloudflare Workers runs at the edge everywhere. Claude runs in your head
+              at all times. Put them together and you get AI at the edge, zero cold starts,
+              and a very confused intern who loves both companies equally.
+            </p>
+            <a href="https://developers.cloudflare.com/ai-gateway/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">AI Gateway docs</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERN LIFE -->
+  <section class="section intern-section" id="intern">
+    <div class="section-inner">
+      <div class="section-tag">02 / intern life</div>
+      <h2 class="section-title">What IAM Interns<br/><em>Actually Do.</em></h2>
+      <p class="section-sub">Not just fetching coffee. Mostly raising tickets and waiting for access.</p>
+
+      <div class="intern-tape" id="intern-tape">
+        <div class="tape-item tape-tilt-l">
+          <div class="tape-num">01</div>
+          <h3>Raise a Ticket</h3>
+          <p>Need repo access? Ticket. Need to read a doc? Ticket. Need to exist in the building? There is probably a form. ETA: 3 to 6 business weeks, no promises.</p>
+        </div>
+        <div class="tape-item tape-tilt-r">
+          <div class="tape-num">02</div>
+          <h3>Wait for Access</h3>
+          <p>By the time your access gets approved you have already Googled the answer, asked Claude, written the feature, and deployed it. The ticket is still "In Review."</p>
+        </div>
+        <div class="tape-item tape-tilt-l">
+          <div class="tape-num">03</div>
+          <h3>Daily Standups</h3>
+          <p>"What did you do yesterday?" Waited for access. "What are you doing today?" Waiting for access. "Any blockers?" Yes. The access. Same answer every day.</p>
+        </div>
+        <div class="tape-item tape-tilt-r">
+          <div class="tape-num">04</div>
+          <h3>Wednesday Lunch</h3>
+          <p>The one day the office is actually full. Free food, good vibes, and a 45-minute conversation about whether the new IAM policy breaks prod. It does.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section portfolio-section" id="portfolio">
+    <div class="section-inner portfolio-inner">
+      <div class="section-tag">03 / portfolio</div>
+      <h2 class="section-title">Built by <a href="https://sanathr.me" target="_blank" rel="noopener" class="name-link">Sanath</a>.</h2>
+      <p class="section-sub">
+        Go to <a href="https://sanathr.me" target="_blank" rel="noopener" class="inline-link">sanathr.me</a> if you want to see what I actually build.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="22" height="14" viewBox="0 0 32 20" fill="none">
+          <path d="M24.5 14.5H7.5C5.6 14.5 4 12.9 4 11C4 9.1 5.6 7.5 7.5 7.5H7.9C8.7 5.2 10.9 3.5 13.5 3.5C15.6 3.5 17.4 4.6 18.5 6.2C19 6 19.6 5.9 20.2 5.9C22.9 5.9 25.1 8.1 25.1 10.8C25.1 11 25 11.2 25 11.4C24.5 13.2 22.8 14.5 24.5 14.5Z" stroke="#999" stroke-width="1.4" fill="none"/>
+        </svg>
+        claudeflare.in
+      </div>
+      <div class="footer-links">
+        <a href="https://cloudflare.com" target="_blank" rel="noopener">Cloudflare</a>
+        <a href="https://anthropic.com" target="_blank" rel="noopener">Anthropic</a>
+      </div>
+      <div class="footer-copy">Not affiliated with Cloudflare or Anthropic.</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
